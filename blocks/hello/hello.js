@@ -1,6 +1,9 @@
 export default function decorate(block) {
+  console.log('HELLO BLOCK LOADED');
+
   block.innerHTML = `
-    <h2>Hello Neetu</h2>
-    <p>My first EDS block</p>
+    <div>
+      <h1>Hello From My First Block 🚀</h1>
+    </div>
   `;
 }
