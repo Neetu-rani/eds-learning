@@ -1,0 +1,21 @@
+.search-widget {
+  max-width: 1000px;
+  margin: 40px auto;
+}
+
+.search-bar {
+  display: flex;
+  gap: 12px;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 12px;
+}
+
+.search-bar button {
+  padding: 12px 20px;
+  background: #ff6200;
+  border: 0;
+  color: white;
+}
