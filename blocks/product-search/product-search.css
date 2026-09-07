@@ -1,0 +1,40 @@
+/* .product-search-widget {
+  max-width: 1000px;
+  margin: 40px auto;
+} */
+
+.product-search-widget input {
+  padding: 12px;
+}
+
+.product-search-widget button {
+  padding: 12px 20px;
+}
+
+
+#results {
+  margin-top: 30px;
+}
+
+#results .cards-container {
+    display: flex;
+    width: 100%;
+    gap: 30px;
+}
+
+.product-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 16px;
+  background: white;
+}
+
+.product-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.product-card h3 {
+  margin-top: 10px;
+}

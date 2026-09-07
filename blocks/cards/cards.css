@@ -30,6 +30,8 @@
 .card h3 {
   padding: 16px;
   margin: 0;
+  height: 56px;
+  overflow: hidden;
 }
 
 .card p {
