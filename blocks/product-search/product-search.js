@@ -1,7 +1,9 @@
 export default function decorate(block) {
   block.innerHTML = `
     <div class="product-search-widget">
-      <h2>Search Recipes</h2>
+    <div class="default-content-wrapper">
+      <p>Search Recipes</p>
+    </div>
 
       <input
         type="text"
@@ -64,10 +66,7 @@ export default function decorate(block) {
       <div class="cards-container">
         ${recipes.map((recipe) => `
           <div class="card">
-            <img
-              src="${recipe.image}"
-              alt             ${recipe.name}
-            </h3>
+            <img src="${recipe.image}">
 
             <p>Cuisine: ${recipe.cuisine}</p>
 

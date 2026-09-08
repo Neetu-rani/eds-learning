@@ -1,4 +1,5 @@
 export default async function decorate(block) {
+    console.log("block", block)
   const link = block.querySelector('a');
 
   if (!link) return;

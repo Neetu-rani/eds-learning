@@ -1,4 +1,4 @@
-.hello-world .greeting {
+/* .hello-world .greeting {
   font-size: 2rem;
   font-weight: 700;
   text-align: center;
@@ -7,4 +7,14 @@
 
 .hello-world .name {
   color: var(--link-color, #3b63fb);
+} */
+.dealer-card {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: space-between;
+    border: 2px dashed #beb9b9;
+    padding: 18px;
+    margin-bottom: 20px;
+    border-radius: 4px;
 }

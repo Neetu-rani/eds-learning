@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "brandName": "McDonald's",
+    "address": "Connaught Place, New Delhi",
+    "phone": "+91 9876543210",
+    "image": "https://images.unsplash.com/photo-1552566626-52f8b828add9?w=600",
+    "directions": "https://maps.google.com/?q=Connaught+Place+New+Delhi"
+  },
+  {
+    "id": 2,
+    "brandName": "KFC",
+    "address": "Cyber Hub, Gurgaon",
+    "phone": "+91 9876543211",
+    "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=600",
+    "directions": "https://maps.google.com/?q=Cyber+Hub+Gurgaon"
+  },
+  {
+    "id": 3,
+    "brandName": "Domino's",
+    "address": "Sector 18, Noida",
+    "phone": "+91 9876543212",
+    "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600",
+    "directions": "https://maps.google.com/?q=Sector+18+Noida"
+  },
+  {
+    "id": 4,
+    "brandName": "Pizza Hut",
+    "address": "MG Road, Gurgaon",
+    "phone": "+91 9876543213",
+    "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=600",
+    "directions": "https://maps.google.com/?q=MG+Road+Gurgaon"
+  },
+  {
+    "id": 5,
+    "brandName": "Subway",
+    "address": "Saket, New Delhi",
+    "phone": "+91 9876543214",
+    "image": "https://images.unsplash.com/photo-1509722747041-616f39b57569?w=600",
+    "directions": "https://maps.google.com/?q=Saket+New+Delhi"
+  },
+  {
+    "id": 6,
+    "brandName": "Burger King",
+    "address": "Rajouri Garden, New Delhi",
+    "phone": "+91 9876543215",
+    "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600",
+    "directions": "https://maps.google.com/?q=Rajouri+Garden+New+Delhi"
+  },
+  {
+    "id": 7,
+    "brandName": "Starbucks",
+    "address": "DLF Cyber City, Gurgaon",
+    "phone": "+91 9876543216",
+    "image": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600",
+    "directions": "https://maps.google.com/?q=DLF+Cyber+City+Gurgaon"
+  },
+  {
+    "id": 8,
+    "brandName": "Taco Bell",
+    "address": "Select Citywalk, New Delhi",
+    "phone": "+91 9876543217",
+    "image": "https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=600",
+    "directions": "https://maps.google.com/?q=Select+Citywalk+New+Delhi"
+  }
+]
