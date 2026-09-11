@@ -1,30 +1,35 @@
 export default async function decorate(block) {
-  const searchWrapper = document.createElement('div');
-  searchWrapper.className = 'search-wrapper';
+  block.innerHTML = `
+    <div class="search-wrapper">
+      <input
+        type="text"
+        class="search-input"
+        placeholder="Search pages or recipes..."
+      />
+      <div class="search-results"></div>
+    </div>
+  `;
 
-  const input = document.createElement('input');
-  input.type = 'text';
-  input.placeholder = 'Search pages...';
+  const input = block.querySelector('.search-input');
+  const results = block.querySelector('.search-results');
 
-  const results = document.createElement('div');
-  results.className = 'search-results';
-
-  searchWrapper.append(input, results);
-  block.append(searchWrapper);
-
-  let indexData = [];
+  let pageData = [];
+  let recipeData = [];
 
   try {
-    const response = await fetch('/query-index.json');
-    const data = await response.json();
+    // Query Index Data
+    const pageResponse = await fetch('/query-index.json');
+    const pageJson = await pageResponse.json();
+    pageData = pageJson.data || [];
 
-    indexData = data.data || [];
+    // Recipe Data
+    const recipeResponse = await fetch('https://dummyjson.com/recipes');
+    const recipeJson = await recipeResponse.json();
+    recipeData = recipeJson.recipes || [];
   } catch (error) {
-    console.error('Index loading failed', error);
-
-    results.innerHTML = `
-      <p>Unable to load search data.</p>
-    `;
+    console.error(error);
+    results.innerHTML = '<p>Unable to load search data.</p>';
+    return;
   }
 
   input.addEventListener('input', () => {
@@ -35,7 +40,8 @@ export default async function decorate(block) {
       return;
     }
 
-    const filtered = indexData.filter((item) => {
+    // Page results
+    const pageResults = pageData.filter((item) => {
       const title = item.title?.toLowerCase() || '';
       const description = item.description?.toLowerCase() || '';
       const category = item.category?.toLowerCase() || '';
@@ -47,31 +53,75 @@ export default async function decorate(block) {
       );
     });
 
-    if (!filtered.length) {
-      results.innerHTML = `
-        <p>No results found.</p>
+    // Recipe results
+    const recipeResults = recipeData.filter((recipe) => {
+      const name = recipe.name?.toLowerCase() || '';
+      const cuisine = recipe.cuisine?.toLowerCase() || '';
+      const difficulty = recipe.difficulty?.toLowerCase() || '';
+
+      return (
+        name.includes(keyword) ||
+        cuisine.includes(keyword) ||
+        difficulty.includes(keyword)
+      );
+    });
+
+    let html = '';
+
+    if (pageResults.length) {
+      html += `
+        <h2>Pages</h2>
+
+        ${pageResults
+          .map(
+            (item) => `
+              <div class="search-card">
+                ${item.path}
+                  <h3>${item.title || 'Untitled'}</h3>
+                </a>
+
+                <p>${item.description || ''}</p>
+
+                ${
+                  item.category
+                    ? `<span>${item.category}</span>`
+                    : ''
+                }
+              </div>
+            `,
+          )
+          .join('')}
       `;
-      return;
     }
 
-    results.innerHTML = filtered
-      .map(
-        (item) => `
-          <div class="search-card">
-            ${item.path}
-              <h3>${item.title || 'Untitled'}</h3>
-            </a>
+    if (recipeResults.length) {
+      html += `
+        <h2>Recipes</h2>
 
-            <p>${item.description || ''}</p>
+        ${recipeResults
+          .map(
+            (recipe) => `
+              <div class="search-card">
+                ${recipe.image}
 
-            ${
-              item.category
-                ? `<span class="category">${item.category}</span>`
-                : ''
-            }
-          </div>
-        `
-      )
-      .join('');
+                <h3>${recipe.name}</h3>
+
+                <p>Cuisine: ${recipe.cuisine}</p>
+
+                <p>Difficulty: ${recipe.difficulty}</p>
+
+                <p>⭐ Rating: ${recipe.rating}</p>
+              </div>
+            `,
+          )
+          .join('')}
+      `;
+    }
+
+    if (!html) {
+      html = '<p>No results found.</p>';
+    }
+
+    results.innerHTML = html;
   });
 }

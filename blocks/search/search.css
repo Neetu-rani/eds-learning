@@ -1,3 +1,12 @@
+.search-container p {
+    font-size: 18px;
+    background: #e9e9e93d;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+    color: #808080;
+}
+
 .search-wrapper {
   max-width: 900px;
   margin: 40px auto;
