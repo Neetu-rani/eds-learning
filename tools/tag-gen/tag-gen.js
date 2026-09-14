@@ -1,14 +1,21 @@
 import DA_SDK from 'https://da.live/nx/utils/sdk.js';
 
+console.log('Plugin loaded successfully');
+
 (async function init() {
+  console.log('Inside init');
+
   const { context, token } = await DA_SDK;
-  const { org, repo, path } = context;
 
-  console.log(org, repo, path, token);
+  console.log('Context:', context);
+  console.log('Token:', token);
 
-  // const cmp = document.createElement('adl-tag-gen');
-  // cmp.path = `/${org}/${repo}${path}`;
-  // cmp.token = token;
-
-  // document.body.append(cmp);
-}());
+  if (context) {
+    document.body.innerHTML = `
+      <h2>EDS Plugin Working ✅</h2>
+      <p>Org: ${context.org}</p>
+      <p>Repo: ${context.repo}</p>
+      <p>Path: ${context.path}</p>
+    `;
+  }
+})();
